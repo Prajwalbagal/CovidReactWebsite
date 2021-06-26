@@ -1,0 +1,19 @@
+.red{
+    color:white;
+  }
+  .top{
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(40, 28, 209);
+    text-align: center;
+    align-items: center;
+  }
+  .left{
+      flex-basis: 50%;
+      background-color: chartreuse;
+  }
+  .right{
+    flex-basis: 50%;
+    text-align: center;
+    align-items: center;
+  }

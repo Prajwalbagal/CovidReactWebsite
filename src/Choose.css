@@ -1,0 +1,15 @@
+.centerone{
+    text-align: center;
+    align-items: center;
+    margin-top:10px;
+    margin-bottom: 10px; 
+}
+select{
+    color:rgb(212, 7, 7);
+    background-color: black;
+    width:30vw;
+    height: 3vh;
+}
+option{
+
+}

@@ -1,24 +1,31 @@
-import logo from './logo.svg';
+import { useState, useEffect } from 'react';
 import './App.css';
-
+import Data from './Data'
+import GraphChart from './GraphChart';
+import Choose from './Choose';
 function App() {
+  let [confirmed, setConfirmed] = useState(0);
+  let [recovered, setRecovered] = useState(0);
+  let [deaths, setDeaths] = useState(0);
+
+  useEffect(() => {
+    firsturl();
+  },[]);
+
+  
+  const firsturl = async () => {
+    const res = await fetch('https://covid19.mathdro.id/api');
+    const json = await res.json();
+    setConfirmed(json.confirmed.value);
+    setRecovered(json.recovered.value);
+    setDeaths(json.deaths.value);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    < >
+      <Data confirmed={confirmed} recovered={recovered} deaths={deaths} />
+      <Choose />
+      <GraphChart />
+    </>
   );
 }
 
